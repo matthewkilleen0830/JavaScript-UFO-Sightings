@@ -32,6 +32,9 @@ function buildTable(sightings) {
 // Define function to filter table by dates input by user
 function filterTable() {
 
+    // Prevent page from reloading using D3
+    d3.event.preventDefault();
+
     // Declare variable to store input date
     var inputDate = d3.select("#datetime");
     var inputValue = inputDate.property("value");
@@ -55,11 +58,13 @@ function filterTable() {
 // Reference variable declared in buildTable function and use d3 to display it on index.html
 var tableBody = d3.select("tbody");
 
-// Build table
+// Call buildTable function
 buildTable(tableData);
 
-// Declare variable to reference "Filter Table" button and input field
+// Declare variables to reference "Filter Table" button and input form
 var filterButton = d3.select("#filter-btn");
+// var formEnter = d3.select("#datetime");
 
-// Create event handler to call function when "Filter Table" button is clicked
+// Create event handlers to call filterTable function when "Filter Table" button is clicked or "enter" is pressed
 filterButton.on("click", filterTable);
+// formEnter.on("submit", filterTable);
