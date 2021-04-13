@@ -63,8 +63,11 @@ buildTable(tableData);
 
 // Declare variables to reference "Filter Table" button and input form
 var filterButton = d3.select("#filter-btn");
-// var formEnter = d3.select("#datetime");
+var formEnter = d3.select("#datetime");
 
 // Create event handlers to call filterTable function when "Filter Table" button is clicked or "enter" is pressed
 filterButton.on("click", filterTable);
-// formEnter.on("submit", filterTable);
+formEnter.on("submit", filterTable);
+
+// <input type = "submit"> somewhere in the form line in index.html???
+// formEnter event handler not calling filterTable function, it actually refreshes the page
